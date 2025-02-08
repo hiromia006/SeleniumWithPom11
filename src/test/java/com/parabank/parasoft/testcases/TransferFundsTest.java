@@ -12,8 +12,8 @@ public class TransferFundsTest extends BaseTest {
     public void transferFundsShouldSucceed() {
         LoginPage loginPg = pg.getInstance(LoginPage.class);
         loginPg = loginPg
-                .fillUsername("sqa")
-                .fillPassword("sqa");
+                .fillUsername(getUsername())
+                .fillPassword(getPassword());
 
         HomePage homePg = loginPg
                 .clickLoginBtn();

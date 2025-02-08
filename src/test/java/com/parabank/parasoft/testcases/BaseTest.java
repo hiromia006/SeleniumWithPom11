@@ -10,15 +10,36 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Objects;
+import java.util.Properties;
 
 public class BaseTest {
     WebDriver driver;
     Page pg;
+    private Properties prop;
+
+    public BaseTest() {
+        prop = new Properties();
+        String path = System.getProperty("user.dir") + "\\src\\test\\resources\\config.properties";
+
+        try {
+            FileInputStream inputStream = new FileInputStream(path);
+            prop.load(inputStream);
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+
+    }
 
     @BeforeMethod
     public void browserSetup() {
-        String browserName = "firefoxHeadless";
+        String browserName = prop.getProperty("browserName");
 
         if (Objects.equals(browserName, "firefox")) {
             driver = new FirefoxDriver();
@@ -35,7 +56,7 @@ public class BaseTest {
         }
 
         driver.manage().window().maximize();
-        driver.get("https://parabank.parasoft.com/parabank/");
+        driver.get(prop.getProperty("baseUrl"));
         pg = new BasePage(driver);
     }
 
@@ -49,4 +70,11 @@ public class BaseTest {
         return driver;
     }
 
+    public String getUsername() {
+        return prop.getProperty("username");
+    }
+
+    public String getPassword() {
+        return prop.getProperty("password");
+    }
 }
