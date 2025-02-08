@@ -9,12 +9,10 @@ public class OpenNewAccountTest extends BaseTest {
     @Test
     public void openNewAccountShouldSucceed() {
         LoginPage loginPg = pg.getInstance(LoginPage.class);
-        loginPg = loginPg
-                .fillUsername("sqa")
-                .fillPassword("sqa");
+
 
         HomePage homePg = loginPg
-                .clickLoginBtn();
+                .doLogin(getUsername(), getPassword());
 
         OpenNewAccountPage newAccountPg = homePg
                 .clickOpenedAccountLink()
@@ -25,9 +23,7 @@ public class OpenNewAccountTest extends BaseTest {
         Assert.assertTrue(openedAccountPg.hasNewAccountId());
 
 //        OpenedAccountPage openedAccountPg2 = pg.getInstance(LoginPage.class)
-//                .fillUsername("sqa")
-//                .fillPassword("sqa")
-//                .clickLoginBtn()
+//                .doLogin(getUsername(), getPassword())
 //                .clickOpenedAccountLink()
 //                .selectAccountType(1)
 //                .selectFromAccountId(0)

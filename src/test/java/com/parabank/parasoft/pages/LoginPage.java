@@ -49,4 +49,10 @@ public class LoginPage extends BasePage {
     public boolean hasError() {
         return getWebElements(By.cssSelector(".error")).size() > 0;
     }
+
+    public HomePage doLogin(String username, String password) {
+        return fillUsername(username)
+                .fillPassword(password)
+                .clickLoginBtn();
+    }
 }
