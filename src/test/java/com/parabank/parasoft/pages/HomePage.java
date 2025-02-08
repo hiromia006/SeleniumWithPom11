@@ -16,4 +16,9 @@ public class HomePage extends BasePage {
         clickElement(By.cssSelector("a[href='openaccount.htm']"));
         return getInstance(OpenNewAccountPage.class);
     }
+
+    public TransferFundsPage clickTransferFundsLink(){
+        clickElement(By.cssSelector("a[href='transfer.htm']"));
+        return getInstance(TransferFundsPage.class);
+    }
 }

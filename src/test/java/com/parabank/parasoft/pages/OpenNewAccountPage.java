@@ -10,17 +10,17 @@ public class OpenNewAccountPage extends BasePage {
     }
 
     public OpenNewAccountPage selectAccountType(String txt) {
-        new Select(getWebElement(By.cssSelector("#type"))).selectByVisibleText(txt);
+        getSelect(By.cssSelector("#type")).selectByVisibleText(txt);
         return this;
     }
 
     public OpenNewAccountPage selectAccountType(int index) {
-        new Select(getWebElement(By.cssSelector("#type"))).selectByIndex(index);
+        getSelect(By.cssSelector("#type")).selectByIndex(index);
         return this;
     }
 
     public OpenNewAccountPage selectFromAccountId(String txt) {
-        new Select(getWebElement(By.cssSelector("#fromAccountId"))).selectByVisibleText(txt);
+        getSelect(By.cssSelector("#fromAccountId")).selectByVisibleText(txt);
         return this;
     }
 
