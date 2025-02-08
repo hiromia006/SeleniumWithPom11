@@ -6,7 +6,7 @@
         <listener class-name="com.parabank.parasoft.report.TestListener"></listener>
     </listeners>
 
-    <test verbose="2" preserve-order="true" name="ggh">
+    <test verbose="2" preserve-order="true" name="Regression  Suite">
 
         <packages>
             <package name="com.parabank.parasoft.testcases.*"></package>

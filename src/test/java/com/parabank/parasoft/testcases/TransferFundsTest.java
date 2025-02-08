@@ -20,8 +20,8 @@ public class TransferFundsTest extends BaseTest {
 
         TransferFundsPage transferFundsPg = homePg
                 .clickTransferFundsLink()
-                .selectFromAccount(1)
-                .selectToAccount(1)
+                .selectFromAccount(0)
+                .selectToAccount(0)
                 .clickFundTransferBtn();
         Assert.assertTrue(transferFundsPg.hasComplete());
 

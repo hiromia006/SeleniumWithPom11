@@ -66,6 +66,7 @@ public class BasePage extends Page {
     }
 
     public Select getSelect(By selector) {
+        wait.until(ExpectedConditions.presenceOfElementLocated(selector));
         return new Select(getWebElement(selector));
     }
 
