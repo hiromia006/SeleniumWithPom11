@@ -19,7 +19,7 @@ public class OpenNewAccountTest extends BaseTest {
         OpenNewAccountPage newAccountPg = homePg
                 .clickOpenedAccountLink()
                 .selectAccountType(1)
-                .selectFromAccountId(0);
+                .selectFromAccountId(1);
 
         OpenedAccountPage openedAccountPg = newAccountPg
                 .clickOpenAccountBtn();
