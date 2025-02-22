@@ -24,8 +24,8 @@ public class LoginTest extends BaseTest {
     public void loginShouldSucceed() {
         LoginPage loginPg = pg.getInstance(LoginPage.class);
         loginPg = loginPg
-                .fillUsername("sqa")
-                .fillPassword("sqa");
+                .fillUsername(getUsername())
+                .fillPassword(getPassword());
 
         HomePage homePg = loginPg
                 .clickLoginBtn();
@@ -50,7 +50,7 @@ public class LoginTest extends BaseTest {
     @Test
     public void loginShouldFailWithOutPassword() {
         LoginPage page = pg.getInstance(LoginPage.class)
-                .fillUsername("dadd")
+                .fillUsername(getUsername())
                 .clickLoginBtnForFail();
         Assert.assertTrue(page.hasUsernameField());
 
@@ -59,7 +59,7 @@ public class LoginTest extends BaseTest {
     @Test
     public void loginShouldFailWithOutUsername() {
         LoginPage page = pg.getInstance(LoginPage.class)
-                .fillPassword("dddd")
+                .fillPassword(getPassword())
                 .clickLoginBtnForFail();
         Assert.assertTrue(page.hasUsernameField());
 
@@ -68,7 +68,7 @@ public class LoginTest extends BaseTest {
     @Test
     public void loginShouldFail() {
         LoginPage page = pg.getInstance(LoginPage.class)
-                .fillUsername("sqaddd")
+                .fillUsername(getUsername())
                 .fillPassword("sdddqa")
                 .clickLoginBtnForFail();
         Assert.assertTrue(page.hasError());
